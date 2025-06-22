@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import SEO from './components/SEO';
 import Navbar from './components/Navbar';
@@ -12,6 +13,27 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
 import Background from './components/Background';
+import ProjectDetail from './components/ProjectDetail';
+import ScrollToTop from './components/ScrollToTop';
+
+function HomePage() {
+  return (
+    <div className="relative">
+      <Background />
+      <Navbar />
+      <main className="relative z-10">
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Certificates />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
+}
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -24,29 +46,20 @@ function App() {
   }, []);
 
   return (
-    <>
+    <Router>
       <SEO />
+      <ScrollToTop />
       <AnimatePresence>
         {loading ? (
           <Loader key="loader" />
         ) : (
-          <div className="relative">
-            <Background />
-            <Navbar />
-            <main className="relative z-10">
-              <Hero />
-              <About />
-              <Experience />
-              <Projects />
-              <Skills />
-              <Certificates />
-              <Contact />
-            </main>
-            <Footer />
-          </div>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/project/:slug" element={<ProjectDetail />} />
+          </Routes>
         )}
       </AnimatePresence>
-    </>
+    </Router>
   );
 }
 

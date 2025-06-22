@@ -1,0 +1,251 @@
+export interface ProjectData {
+  id: string;
+  slug: string;
+  title: string;
+  shortDescription: string;
+  description: string[];
+  technologies: string[];
+  github?: string;
+  liveDemo?: string;
+  features: string[];
+  challenges?: string[];
+  learnings?: string[];
+  images?: string[];
+  category: 'web' | 'security' | 'system' | 'compiler' | 'scraping';
+}
+
+export const projects: ProjectData[] = [
+  {
+    id: '1',
+    slug: 'lexical-analyzer',
+    title: "Lexical Analyzer with GUI Integration",
+    shortDescription: "A compiler design project with interactive GUI for tokenizing source code",
+    description: [
+      "Developed a Lexical Analyzer as part of a compiler design project that efficiently tokenizes source code and identifies lexical patterns such as keywords, identifiers, operators, and symbols.",
+      "The project was built using C++ with an interactive Graphical User Interface (GUI) using Dear ImGui and GLFW, ensuring real-time visual feedback during lexical analysis."
+    ],
+    technologies: ["C++", "Dear ImGui", "GLFW", "File Handling", "OOP"],
+    github: "https://github.com/Shrutiii09/LexicalAnalyzer.git",
+    category: 'compiler',
+    features: [
+      "Tokenization Engine: Parses input code and classifies tokens like keywords, identifiers, constants, operators, delimiters, and more",
+      "Symbol Table Generator: Maintains a table of user-defined identifiers for use in later compiler phases",
+      "Real-time GUI: Displays input source code, token table, and symbol table in a responsive and user-friendly interface",
+      "Modular Design: Clear separation of logic using src/ and include/ directories for scalability and maintenance",
+      "Performance-focused: Lightweight GUI built using Dear ImGui for minimal overhead and fast rendering"
+    ],
+    challenges: [
+      "Implementing efficient tokenization algorithms for various programming language constructs",
+      "Integrating C++ backend logic with ImGui for seamless real-time updates",
+      "Managing memory efficiently while handling large source code files",
+      "Creating an intuitive GUI layout that clearly displays complex compiler data"
+    ],
+    learnings: [
+      "Deep understanding of lexical analysis phase in compiler design",
+      "Experience with GUI development using Dear ImGui and GLFW",
+      "Advanced C++ programming with focus on performance optimization",
+      "Modular software architecture and separation of concerns"
+    ]
+  },
+  {
+    id: '2',
+    slug: 'minishell',
+    title: "MiniShell – Custom Command Line Shell",
+    shortDescription: "A simplified command-line interpreter built with Python",
+    description: [
+      "Developed a MiniShell, a simplified command-line interpreter using Python, designed to mimic the core behavior of traditional UNIX/Linux shells.",
+      "This project enhances understanding of shell scripting, process management, and system-level interaction in a high-level programming language."
+    ],
+    technologies: ["Python", "subprocess", "os module", "System Programming"],
+    github: "https://github.com/Shrutiii09/minishelll.git",
+    category: 'system',
+    features: [
+      "Command Execution: Runs both built-in and external system commands using the subprocess module",
+      "Input Parsing: Handles user input with support for command arguments, pipes (|), and redirections (>, <)",
+      "Piping & Redirection: Implements basic I/O redirection and piping to allow chaining of commands",
+      "Error Handling: Provides meaningful error messages for invalid commands or failed executions",
+      "Interactive Loop: Mimics a traditional shell prompt (myshell>) with continuous user interaction"
+    ],
+    challenges: [
+      "Implementing proper process management and handling child processes",
+      "Parsing complex command strings with pipes and redirections",
+      "Managing file descriptors for I/O redirection",
+      "Handling edge cases and providing robust error handling"
+    ],
+    learnings: [
+      "System-level programming concepts in Python",
+      "Process management and inter-process communication",
+      "Command parsing and shell internals",
+      "File handling and I/O redirection mechanisms"
+    ]
+  },
+  {
+    id: '3',
+    slug: 'data-leak-detection',
+    title: "Data Leak Detection System",
+    shortDescription: "Real-time data monitoring system for identifying potential data leaks",
+    description: [
+      "Real time data monitoring system in Python",
+      "Developed a Python system to effectively identify and flag potential data leaks.",
+      "Integrated real-time monitoring for immediate detection and response to data breaches."
+    ],
+    technologies: ["Python", "Data Analysis", "Security", "Real-time Monitoring"],
+    github: "https://github.com/Shrutiii09/data-leak-detection",
+    category: 'security',
+    features: [
+      "Real-time monitoring of data flows and access patterns",
+      "Pattern recognition algorithms to identify suspicious activities",
+      "Automated alerting system for potential data breaches",
+      "Comprehensive logging and audit trail functionality",
+      "Configurable sensitivity levels for different data types"
+    ],
+    challenges: [
+      "Implementing efficient real-time monitoring without performance impact",
+      "Developing accurate pattern recognition to minimize false positives",
+      "Handling large volumes of data while maintaining system responsiveness",
+      "Creating a robust alerting mechanism for immediate response"
+    ],
+    learnings: [
+      "Data security principles and breach detection methodologies",
+      "Real-time system design and implementation",
+      "Pattern recognition and anomaly detection algorithms",
+      "Security monitoring best practices"
+    ]
+  },
+  {
+    id: '4',
+    slug: 'steganography-tool',
+    title: "Encryption and Decryption using Digital Cryptography",
+    shortDescription: "Django-based steganography tool with LSB encryption for secure image data hiding",
+    description: [
+      "Developed a Django-based steganography tool using LSB encryption for secure image data hiding.",
+      "Designed a responsive UI with JavaScript, Bootstrap, and Tailwind CSS; implemented unit testing for validation."
+    ],
+    technologies: ["Django", "JavaScript", "Bootstrap", "Tailwind CSS", "Cryptography", "LSB Encryption"],
+    github: "https://github.com/Shrutiii09/steganography-tool",
+    category: 'security',
+    features: [
+      "LSB (Least Significant Bit) encryption for hiding data in images",
+      "User-friendly web interface for easy file upload and processing",
+      "Support for multiple image formats (PNG, JPEG, BMP)",
+      "Secure data extraction and decryption capabilities",
+      "Responsive design optimized for all device sizes"
+    ],
+    challenges: [
+      "Implementing efficient LSB encryption algorithms",
+      "Maintaining image quality while embedding hidden data",
+      "Creating an intuitive user interface for complex cryptographic operations",
+      "Ensuring data integrity during the encryption/decryption process"
+    ],
+    learnings: [
+      "Digital cryptography and steganography techniques",
+      "Image processing and manipulation algorithms",
+      "Full-stack web development with Django",
+      "Security-focused application development"
+    ]
+  },
+  {
+    id: '5',
+    slug: 'web-scraper',
+    title: "Web Scraping Tool",
+    shortDescription: "Python scraper with Beautiful Soup for automated data collection",
+    description: [
+      "Created a Python scraper with Beautiful Soup for automated data collection.",
+      "Developed an adaptable, scalable tool for diverse web scraping tasks."
+    ],
+    technologies: ["Python", "Beautiful Soup", "Data Collection", "Web Scraping"],
+    github: "https://github.com/Shrutiii09/web-scraper",
+    category: 'scraping',
+    features: [
+      "Automated data extraction from multiple website structures",
+      "Configurable scraping parameters for different data types",
+      "Rate limiting and respectful scraping practices",
+      "Data export in multiple formats (CSV, JSON, XML)",
+      "Error handling and retry mechanisms for robust operation"
+    ],
+    challenges: [
+      "Handling dynamic content and JavaScript-rendered pages",
+      "Implementing respectful scraping with proper delays",
+      "Managing different website structures and layouts",
+      "Dealing with anti-scraping measures and CAPTCHAs"
+    ],
+    learnings: [
+      "Web scraping ethics and best practices",
+      "HTML parsing and data extraction techniques",
+      "Handling HTTP requests and responses",
+      "Data processing and export methodologies"
+    ]
+  },
+  {
+    id: '6',
+    slug: 'tic-tac-toe',
+    title: "TIC-TAC-TOE",
+    shortDescription: "Interactive Tic-Tac-Toe game built with Next.js and TypeScript",
+    description: [
+      "Built a Tic-Tac-Toe game with Next.js, React, and TypeScript featuring animations and Vercel deployment."
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Vercel", "CSS Animations"],
+    liveDemo: "https://bouncee.vercel.app/",
+    github: "https://github.com/Shrutiii09/tic-tac-toe",
+    category: 'web',
+    features: [
+      "Interactive game board with smooth animations",
+      "Player vs Player gameplay with turn indicators",
+      "Win detection and game state management",
+      "Responsive design for mobile and desktop",
+      "Reset functionality for continuous play"
+    ],
+    challenges: [
+      "Implementing game logic with proper state management",
+      "Creating smooth animations and transitions",
+      "Ensuring responsive design across all devices",
+      "Optimizing performance for smooth gameplay"
+    ],
+    learnings: [
+      "Modern React development with hooks and state management",
+      "TypeScript integration for type-safe development",
+      "Next.js framework features and deployment",
+      "CSS animations and user experience design"
+    ]
+  },
+  {
+    id: '7',
+    slug: 'atm-simulation',
+    title: "ATM Project",
+    shortDescription: "Object-oriented ATM simulation system built with C++",
+    description: [
+      "Designed an ATM simulation project using object-oriented programming in C++.",
+      "Simulated banking transactions and user interactions."
+    ],
+    technologies: ["C++", "OOP", "Banking System", "User Interface"],
+    github: "https://github.com/Shrutiii09/atm-simulation",
+    category: 'system',
+    features: [
+      "Complete ATM functionality simulation",
+      "Account management with balance tracking",
+      "Transaction history and receipt generation",
+      "PIN-based authentication system",
+      "Multiple account types support"
+    ],
+    challenges: [
+      "Designing a secure authentication system",
+      "Implementing proper error handling for banking operations",
+      "Creating a user-friendly console interface",
+      "Managing account data persistence"
+    ],
+    learnings: [
+      "Object-oriented programming principles in C++",
+      "Banking system logic and transaction processing",
+      "User interface design for console applications",
+      "Data validation and security considerations"
+    ]
+  }
+];
+
+export const getProjectBySlug = (slug: string): ProjectData | undefined => {
+  return projects.find(project => project.slug === slug);
+};
+
+export const getProjectsByCategory = (category: string): ProjectData[] => {
+  return projects.filter(project => project.category === category);
+};

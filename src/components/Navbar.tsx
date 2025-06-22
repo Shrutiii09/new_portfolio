@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Code2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isProjectPage = location.pathname.startsWith('/project/');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,12 +24,12 @@ const Navbar: React.FC = () => {
   }, [scrolled]);
 
   const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Certificates', href: '#certificates' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: isProjectPage ? '/#about' : '#about' },
+    { name: 'Experience', href: isProjectPage ? '/#experience' : '#experience' },
+    { name: 'Projects', href: isProjectPage ? '/#projects' : '#projects' },
+    { name: 'Skills', href: isProjectPage ? '/#skills' : '#skills' },
+    { name: 'Certificates', href: isProjectPage ? '/#certificates' : '#certificates' },
+    { name: 'Contact', href: isProjectPage ? '/#contact' : '#contact' },
   ];
 
   const socialLinks = [
@@ -56,15 +59,27 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <motion.a 
-            href="#hero"
-            className="text-xl font-bold text-white flex items-center"
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            Shruti Agarwal
-          </motion.a>
+            {isProjectPage ? (
+              <Link 
+                to="/"
+                className="text-xl font-bold text-white flex items-center hover:text-primary-300 transition-colors"
+              >
+                Shruti Agarwal
+              </Link>
+            ) : (
+              <a 
+                href="#hero"
+                className="text-xl font-bold text-white flex items-center"
+              >
+                Shruti Agarwal
+              </a>
+            )}
+          </motion.div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -76,13 +91,23 @@ const Navbar: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
-                  <a 
-                    href={item.href} 
-                    className="text-gray-300 hover:text-white transition-colors relative group"
-                  >
-                    {item.name}
-                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-accent-500 transition-all duration-300 group-hover:w-full"></span>
-                  </a>
+                  {isProjectPage ? (
+                    <Link 
+                      to={item.href} 
+                      className="text-gray-300 hover:text-white transition-colors relative group"
+                    >
+                      {item.name}
+                      <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-accent-500 transition-all duration-300 group-hover:w-full"></span>
+                    </Link>
+                  ) : (
+                    <a 
+                      href={item.href} 
+                      className="text-gray-300 hover:text-white transition-colors relative group"
+                    >
+                      {item.name}
+                      <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-accent-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                  )}
                 </motion.li>
               ))}
             </ul>
@@ -128,14 +153,25 @@ const Navbar: React.FC = () => {
       >
         <div className="px-4 pt-2 pb-6 space-y-2 bg-dark-300/90 backdrop-blur-sm">
           {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="block py-2 text-gray-300 hover:text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              {item.name}
-            </a>
+            <div key={item.name}>
+              {isProjectPage ? (
+                <Link
+                  to={item.href}
+                  className="block py-2 text-gray-300 hover:text-white"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  href={item.href}
+                  className="block py-2 text-gray-300 hover:text-white"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </a>
+              )}
+            </div>
           ))}
           <div className="flex space-x-4 pt-4">
             {socialLinks.map((link, index) => (

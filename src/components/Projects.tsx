@@ -1,66 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SectionHeading from './SectionHeading';
-
-interface ProjectData {
-  title: string;
-  description: string[];
-  technologies: string[];
-  github?: string;
-  liveDemo?: string;
-}
-
-const projects: ProjectData[] = [
-  {
-    title: "Data Leak Detection System",
-    description: [
-      "Real time data monitoring system in Python",
-      "Developed a Python system to effectively identify and flag potential data leaks.",
-      "Integrated real-time monitoring for immediate detection and response to data breaches."
-    ],
-    technologies: ["Python", "Data Analysis", "Security"],
-    github: "https://github.com/Shrutiii09/data-leak-detection"
-  },
-  {
-    title: "Encryption and Decryption using Digital Cryptography",
-    description: [
-      "Developed a Django-based steganography tool using LSB encryption for secure image data hiding.",
-      "Designed a responsive UI with JavaScript, Bootstrap, and Tailwind CSS; implemented unit testing for validation."
-    ],
-    technologies: ["Django", "JavaScript", "Bootstrap", "Tailwind CSS", "Cryptography"],
-    github: "https://github.com/Shrutiii09/steganography-tool"
-  },
-  {
-    title: "Web Scraping Tool",
-    description: [
-      "Created a Python scraper with Beautiful Soup for automated data collection.",
-      "Developed an adaptable, scalable tool for diverse web scraping tasks."
-    ],
-    technologies: ["Python", "Beautiful Soup", "Data Collection"],
-    github: "https://github.com/Shrutiii09/web-scraper"
-  },
-  {
-    title: "TIC-TAC-TOE",
-    description: [
-      "Built a Tic-Tac-Toe game with Next.js, React, and TypeScript featuring animations and Vercel deployment."
-    ],
-    technologies: ["Next.js", "React", "TypeScript", "Vercel"],
-    liveDemo: "https://bouncee.vercel.app/",
-    github: "https://github.com/Shrutiii09/tic-tac-toe"
-  },
-  {
-    title: "ATM Project",
-    description: [
-      "Designed an ATM simulation project using object-oriented programming in C++.",
-      "Simulated banking transactions and user interactions."
-    ],
-    technologies: ["C++", "OOP"],
-    github: "https://github.com/Shrutiii09/atm-simulation"
-  }
-];
+import { projects } from '../data/projects';
 
 const Projects: React.FC = () => {
+  const getCategoryColor = (category: string) => {
+    const colors = {
+      web: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
+      security: 'bg-red-500/20 text-red-300 border-red-500/30',
+      system: 'bg-green-500/20 text-green-300 border-green-500/30',
+      compiler: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
+      scraping: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30'
+    };
+    return colors[category as keyof typeof colors] || 'bg-gray-500/20 text-gray-300 border-gray-500/30';
+  };
+
   return (
     <section id="projects" className="py-20 bg-dark-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,27 +25,34 @@ const Projects: React.FC = () => {
           subtitle="A collection of my recent work and personal projects"
         />
         
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
-              key={index}
-              className="bg-dark-400 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-800 h-full flex flex-col"
+              key={project.id}
+              className="bg-dark-400 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800 h-full flex flex-col group"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
+              whileHover={{ y: -5 }}
             >
               <div className="p-6 flex-grow">
-                <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-                
-                <div className="text-gray-300 space-y-2 mb-4">
-                  {project.description.map((desc, i) => (
-                    <p key={i}>{desc}</p>
-                  ))}
+                <div className="flex items-start justify-between mb-3">
+                  <span className={`px-2 py-1 text-xs font-medium rounded-full border ${getCategoryColor(project.category)}`}>
+                    {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
+                  </span>
                 </div>
                 
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {project.technologies.map((tech, i) => (
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary-300 transition-colors">
+                  {project.title}
+                </h3>
+                
+                <p className="text-gray-300 mb-4 line-clamp-3">
+                  {project.shortDescription}
+                </p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.slice(0, 3).map((tech, i) => (
                     <span 
                       key={i} 
                       className="text-xs font-mono py-1 px-2 rounded-full bg-primary-900/40 text-primary-300"
@@ -97,7 +60,20 @@ const Projects: React.FC = () => {
                       {tech}
                     </span>
                   ))}
+                  {project.technologies.length > 3 && (
+                    <span className="text-xs font-mono py-1 px-2 rounded-full bg-gray-700 text-gray-300">
+                      +{project.technologies.length - 3} more
+                    </span>
+                  )}
                 </div>
+                
+                <Link 
+                  to={`/project/${project.slug}`}
+                  className="inline-flex items-center text-accent-500 hover:text-accent-400 transition-colors font-medium"
+                >
+                  View Details
+                  <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
               
               <div className="border-t border-gray-800 p-4 flex justify-end gap-4">
