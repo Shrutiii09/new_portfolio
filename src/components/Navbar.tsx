@@ -65,9 +65,9 @@ const Navbar = () => {
                   : 'text-gray-900 hover:text-primary-600'
               }`}
             >
-              <span className="text-accent-500"><</span>
+              <span className="text-accent-500">{'<'}</span>
               SA
-              <span className="text-accent-500">/></span>
+              <span className="text-accent-500">{'/>'}</span>
             </button>
           </motion.div>
 
