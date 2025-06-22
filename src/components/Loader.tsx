@@ -31,9 +31,9 @@ const Loader: React.FC = () => {
             }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <span className="text-accent-500"><</span>
+            <span className="text-accent-500">&lt;</span>
             Shruti Agarwal
-            <span className="text-accent-500">/></span>
+            <span className="text-accent-500">/&gt;</span>
           </motion.div>
           
           {/* Animated ring around text */}
