@@ -10,6 +10,17 @@
   body {
     @apply transition-colors duration-300;
   }
+  
+  /* Optimize font loading */
+  @font-face {
+    font-family: 'Inter';
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-display: swap;
+  }
 }
 
 @layer utilities {
@@ -34,6 +45,21 @@
   .glass-effect-dark {
     @apply bg-black/10 backdrop-blur-md border border-white/10;
   }
+  
+  /* Performance optimizations */
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .will-change-opacity {
+    will-change: opacity;
+  }
+  
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
 }
 
 /* Custom scrollbar */
@@ -53,7 +79,41 @@
   @apply bg-gray-500 dark:bg-gray-500;
 }
 
-/* Smooth transitions for theme switching */
+/* Smooth transitions for theme switching - optimized */
 * {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize animations */
+@keyframes text-slide {
+  0%, 16% { transform: translateY(0%); }
+  20%, 36% { transform: translateY(-16.66%); }
+  40%, 56% { transform: translateY(-33.33%); }
+  60%, 76% { transform: translateY(-50%); }
+  80%, 96% { transform: translateY(-66.66%); }
+  100% { transform: translateY(-83.33%); }
+}
+
+.animate-text-slide {
+  animation: text-slide 12s linear infinite;
+  will-change: transform;
+}
+
+/* Preload critical resources */
+.preload-fonts {
+  font-family: 'Inter', 'JetBrains Mono';
+  visibility: hidden;
+  position: absolute;
 }

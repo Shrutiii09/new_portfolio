@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Home, User, Briefcase, Award, Mail, Code } from 'lucide-react';
+import { Menu, X, Home, User, Briefcase, Award, Mail, Code, Trophy } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 import ThemeToggle from './ThemeToggle';
@@ -7,7 +7,7 @@ import ThemeToggle from './ThemeToggle';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { theme } = useTheme();
+  const { isDark } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,11 +20,12 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home', icon: Home },
+    { name: 'Home', href: '#hero', icon: Home },
     { name: 'About', href: '#about', icon: User },
     { name: 'Experience', href: '#experience', icon: Briefcase },
-    { name: 'Skills', href: '#skills', icon: Code },
+    { name: 'Achievements', href: '#achievements', icon: Trophy },
     { name: 'Projects', href: '#projects', icon: Code },
+    { name: 'Skills', href: '#skills', icon: Code },
     { name: 'Certificates', href: '#certificates', icon: Award },
     { name: 'Contact', href: '#contact', icon: Mail },
   ];
@@ -43,8 +44,8 @@ const Navbar = () => {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? theme === 'dark'
-            ? 'bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800'
+          ? isDark
+            ? 'bg-black/95 backdrop-blur-md shadow-lg border-b border-gray-800'
             : 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200'
           : 'bg-transparent'
       }`}
@@ -57,33 +58,40 @@ const Navbar = () => {
             className="flex-shrink-0"
           >
             <button
-              onClick={() => scrollToSection('#home')}
-              className={`text-2xl font-bold transition-colors ${
-                theme === 'dark'
-                  ? 'text-white hover:text-blue-400'
-                  : 'text-gray-900 hover:text-blue-600'
+              onClick={() => scrollToSection('#hero')}
+              className={`text-2xl font-bold transition-colors flex items-center gap-2 ${
+                isDark
+                  ? 'text-white hover:text-primary-400'
+                  : 'text-gray-900 hover:text-primary-600'
               }`}
             >
-              Portfolio
+              <span className="text-accent-500"><</span>
+              SA
+              <span className="text-accent-500">/></span>
             </button>
           </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-baseline space-x-6">
               {navItems.map((item) => (
                 <motion.button
                   key={item.name}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => scrollToSection(item.href)}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
-                    theme === 'dark'
-                      ? 'text-gray-300 hover:text-white hover:bg-gray-800'
-                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
+                    isDark
+                      ? 'text-gray-300 hover:text-white hover:bg-gray-800/50'
+                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100/50'
                   }`}
                 >
-                  <item.icon size={16} />
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <item.icon size={16} />
+                  </motion.div>
                   {item.name}
                 </motion.button>
               ))}
@@ -100,12 +108,17 @@ const Navbar = () => {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(!isOpen)}
                 className={`p-2 rounded-md transition-colors ${
-                  theme === 'dark'
+                  isDark
                     ? 'text-gray-400 hover:text-white hover:bg-gray-800'
                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                 }`}
               >
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
+                <motion.div
+                  animate={{ rotate: isOpen ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {isOpen ? <X size={24} /> : <Menu size={24} />}
+                </motion.div>
               </motion.button>
             </div>
           </div>
@@ -120,8 +133,8 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             className={`md:hidden border-t ${
-              theme === 'dark'
-                ? 'bg-gray-900/95 backdrop-blur-md border-gray-800'
+              isDark
+                ? 'bg-black/95 backdrop-blur-md border-gray-800'
                 : 'bg-white/95 backdrop-blur-md border-gray-200'
             }`}
           >
@@ -134,12 +147,17 @@ const Navbar = () => {
                   transition={{ delay: index * 0.1 }}
                   onClick={() => scrollToSection(item.href)}
                   className={`w-full text-left px-3 py-2 rounded-md text-base font-medium transition-all duration-200 flex items-center gap-3 ${
-                    theme === 'dark'
+                    isDark
                       ? 'text-gray-300 hover:text-white hover:bg-gray-800'
                       : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
                   }`}
                 >
-                  <item.icon size={18} />
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <item.icon size={18} />
+                  </motion.div>
                   {item.name}
                 </motion.button>
               ))}

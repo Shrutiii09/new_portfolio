@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
+import Achievements from './components/Achievements';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Certificates from './components/Certificates';
@@ -26,6 +27,7 @@ function HomePage() {
         <Hero />
         <About />
         <Experience />
+        <Achievements />
         <Projects />
         <Skills />
         <Certificates />
@@ -40,10 +42,25 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading assets
-    setTimeout(() => {
+    // Optimize loading by reducing timeout and preloading critical resources
+    const timer = setTimeout(() => {
       setLoading(false);
-    }, 2500);
+    }, 1500); // Reduced from 2500ms
+
+    // Preload critical resources
+    const preloadLinks = [
+      'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap'
+    ];
+
+    preloadLinks.forEach(href => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'style';
+      link.href = href;
+      document.head.appendChild(link);
+    });
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -51,7 +68,7 @@ function App() {
       <Router>
         <SEO />
         <ScrollToTop />
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {loading ? (
             <Loader key="loader" />
           ) : (
