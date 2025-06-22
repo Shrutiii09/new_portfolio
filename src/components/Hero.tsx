@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
               Get in Touch
             </a>
             <a 
-              href="https://drive.google.com/file/d/1dkFr2wu1PftmxG_F-PqE-ptw-5TcQX5H/view?usp=sharing" 
+              href="https://drive.google.com/file/d/1onNuDgnZ93HAwjRo5mfwadPzRYOdZ9ww/view?usp=sharing" 
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 rounded-full border border-accent-500 text-accent-500 font-medium hover:bg-accent-500 hover:text-white transition-colors duration-300 flex items-center gap-2"
