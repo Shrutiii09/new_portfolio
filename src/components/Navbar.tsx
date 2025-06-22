@@ -59,15 +59,13 @@ const Navbar = () => {
           >
             <button
               onClick={() => scrollToSection('#hero')}
-              className={`text-2xl font-bold transition-colors flex items-center gap-2 ${
+              className={`text-2xl font-bold transition-colors ${
                 isDark
                   ? 'text-white hover:text-primary-400'
                   : 'text-gray-900 hover:text-primary-600'
               }`}
             >
-              <span className="text-accent-500">{'<'}</span>
-              SA
-              <span className="text-accent-500">{'/>'}</span>
+              Shruti Agarwal
             </button>
           </motion.div>
 

@@ -86,7 +86,6 @@ const categories = [
 
 const Certificates: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
-  const [hoveredCert, setHoveredCert] = useState<string | null>(null);
 
   const filteredCertificates = activeFilter === 'all' 
     ? certificates 
@@ -242,8 +241,6 @@ const Certificates: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                onHoverStart={() => setHoveredCert(cert.title)}
-                onHoverEnd={() => setHoveredCert(null)}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className={`p-3 rounded-lg bg-gradient-to-r ${getCategoryColor(cert.category)} group-hover:scale-110 transition-transform duration-300`}>
@@ -283,12 +280,6 @@ const Certificates: React.FC = () => {
                   View Certificate
                   <ExternalLink className="w-3 h-3" />
                 </motion.a>
-
-                {/* Hover glow effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-accent-500/10 rounded-xl opacity-0 transition-opacity duration-300"
-                  animate={{ opacity: hoveredCert === cert.title ? 1 : 0 }}
-                />
               </motion.div>
             ))}
           </motion.div>

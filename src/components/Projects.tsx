@@ -67,37 +67,46 @@ const Projects: React.FC = () => {
                   )}
                 </div>
                 
-                <Link 
-                  to={`/project/${project.slug}`}
-                  className="inline-flex items-center text-accent-500 hover:text-accent-400 transition-colors font-medium"
+                <motion.div
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  View Details
-                  <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  <Link 
+                    to={`/project/${project.slug}`}
+                    className="inline-flex items-center text-accent-500 hover:text-accent-400 transition-colors font-medium"
+                  >
+                    View Details
+                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </motion.div>
               </div>
               
               <div className="border-t border-gray-800 p-4 flex justify-end gap-4">
                 {project.github && (
-                  <a 
+                  <motion.a 
                     href={project.github} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-white transition-colors"
                     aria-label={`View ${project.title} source code on GitHub`}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                   >
                     <Github className="w-5 h-5" />
-                  </a>
+                  </motion.a>
                 )}
                 {project.liveDemo && (
-                  <a 
+                  <motion.a 
                     href={project.liveDemo} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-white transition-colors"
                     aria-label={`Visit ${project.title} live demo`}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                   >
                     <ExternalLink className="w-5 h-5" />
-                  </a>
+                  </motion.a>
                 )}
               </div>
             </motion.div>

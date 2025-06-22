@@ -67,7 +67,6 @@ const skillsData: SkillCategory[] = [
 
 const Skills: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState(0);
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   const getSkillIcon = (level: number) => {
     if (level >= 90) return <Star className="w-4 h-4 text-yellow-400" />;
@@ -146,8 +145,6 @@ const Skills: React.FC = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: skillIndex * 0.1 }}
-                      onHoverStart={() => setHoveredSkill(skill.name)}
-                      onHoverEnd={() => setHoveredSkill(null)}
                     >
                       <div className="bg-gray-50 dark:bg-dark-400 rounded-xl p-6 border border-gray-200 dark:border-gray-600 hover:border-primary-500 transition-all duration-300 hover:shadow-lg">
                         <div className="flex items-center justify-between mb-3">
@@ -172,22 +169,11 @@ const Skills: React.FC = () => {
                               transition={{ duration: 1, delay: skillIndex * 0.1 }}
                             />
                           </div>
-                          
-                          {/* Animated glow effect */}
-                          <motion.div
-                            className={`absolute top-0 h-2 rounded-full bg-gradient-to-r ${skillsData[activeCategory].color} opacity-50 blur-sm`}
-                            initial={{ width: 0 }}
-                            animate={{ width: hoveredSkill === skill.name ? `${skill.level}%` : '0%' }}
-                            transition={{ duration: 0.3 }}
-                          />
                         </div>
 
                         <p className="text-sm text-gray-600 dark:text-gray-400">
                           {skill.description}
                         </p>
-
-                        {/* Hover effect overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 to-accent-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </div>
                     </motion.div>
                   ))}
