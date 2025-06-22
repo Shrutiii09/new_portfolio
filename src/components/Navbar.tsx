@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Code2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,7 +54,9 @@ const Navbar: React.FC = () => {
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-dark-300/80 backdrop-blur-sm shadow-md' : 'bg-transparent'
+        scrolled 
+          ? 'bg-white/80 dark:bg-dark-300/80 backdrop-blur-sm shadow-lg border-b border-gray-200 dark:border-gray-700' 
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,16 +70,16 @@ const Navbar: React.FC = () => {
             {isProjectPage ? (
               <Link 
                 to="/"
-                className="text-xl font-bold text-white flex items-center hover:text-primary-300 transition-colors"
+                className="text-xl font-bold text-gray-800 dark:text-white flex items-center hover:text-primary-500 transition-colors"
               >
-                Shruti Agarwal
+                <span className="text-accent-500"><</span>SA<span className="text-accent-500">/></span>
               </Link>
             ) : (
               <a 
                 href="#hero"
-                className="text-xl font-bold text-white flex items-center"
+                className="text-xl font-bold text-gray-800 dark:text-white flex items-center"
               >
-                Shruti Agarwal
+                <span className="text-accent-500"><</span>SA<span className="text-accent-500">/></span>
               </a>
             )}
           </motion.div>
@@ -94,7 +97,7 @@ const Navbar: React.FC = () => {
                   {isProjectPage ? (
                     <Link 
                       to={item.href} 
-                      className="text-gray-300 hover:text-white transition-colors relative group"
+                      className="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors relative group"
                     >
                       {item.name}
                       <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-accent-500 transition-all duration-300 group-hover:w-full"></span>
@@ -102,7 +105,7 @@ const Navbar: React.FC = () => {
                   ) : (
                     <a 
                       href={item.href} 
-                      className="text-gray-300 hover:text-white transition-colors relative group"
+                      className="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors relative group"
                     >
                       {item.name}
                       <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-accent-500 transition-all duration-300 group-hover:w-full"></span>
@@ -111,18 +114,21 @@ const Navbar: React.FC = () => {
                 </motion.li>
               ))}
             </ul>
+            
             <div className="flex items-center space-x-4">
+              <ThemeToggle />
               {socialLinks.map((link, index) => (
                 <motion.a
                   key={index}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
                   aria-label={link.label}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+                  whileHover={{ scale: 1.1 }}
                 >
                   {link.icon}
                 </motion.a>
@@ -131,16 +137,19 @@ const Navbar: React.FC = () => {
           </nav>
 
           {/* Mobile menu button */}
-          <motion.button
-            className="md:hidden text-gray-300 hover:text-white"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            {isOpen ? <X /> : <Menu />}
-          </motion.button>
+          <div className="md:hidden flex items-center space-x-4">
+            <ThemeToggle />
+            <motion.button
+              className="text-gray-600 dark:text-gray-300 hover:text-primary-500"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              {isOpen ? <X /> : <Menu />}
+            </motion.button>
+          </div>
         </div>
       </div>
 
@@ -151,13 +160,13 @@ const Navbar: React.FC = () => {
         animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="px-4 pt-2 pb-6 space-y-2 bg-dark-300/90 backdrop-blur-sm">
+        <div className="px-4 pt-2 pb-6 space-y-2 bg-white/90 dark:bg-dark-300/90 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700">
           {navItems.map((item) => (
             <div key={item.name}>
               {isProjectPage ? (
                 <Link
                   to={item.href}
-                  className="block py-2 text-gray-300 hover:text-white"
+                  className="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-500"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
@@ -165,7 +174,7 @@ const Navbar: React.FC = () => {
               ) : (
                 <a
                   href={item.href}
-                  className="block py-2 text-gray-300 hover:text-white"
+                  className="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-500"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
@@ -180,7 +189,7 @@ const Navbar: React.FC = () => {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-500 dark:text-gray-400 hover:text-primary-500 transition-colors"
                 aria-label={link.label}
               >
                 {link.icon}

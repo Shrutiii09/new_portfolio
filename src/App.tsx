@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { ThemeProvider } from './contexts/ThemeContext';
 import SEO from './components/SEO';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -46,20 +47,22 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <SEO />
-      <ScrollToTop />
-      <AnimatePresence>
-        {loading ? (
-          <Loader key="loader" />
-        ) : (
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/project/:slug" element={<ProjectDetail />} />
-          </Routes>
-        )}
-      </AnimatePresence>
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <SEO />
+        <ScrollToTop />
+        <AnimatePresence>
+          {loading ? (
+            <Loader key="loader" />
+          ) : (
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/project/:slug" element={<ProjectDetail />} />
+            </Routes>
+          )}
+        </AnimatePresence>
+      </Router>
+    </ThemeProvider>
   );
 }
 

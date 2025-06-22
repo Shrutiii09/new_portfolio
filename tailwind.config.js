@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -44,10 +45,16 @@ export default {
           950: '#022c22',
         },
         dark: {
-          100: '#222831',
-          200: '#1a202c',
-          300: '#171923',
+          100: '#2d3748',
+          200: '#2a2e3a',
+          300: '#1a202c',
           400: '#0e1117',
+        },
+        light: {
+          100: '#f8fafc',
+          200: '#f1f5f9',
+          300: '#e2e8f0',
+          400: '#cbd5e1',
         }
       },
       fontFamily: {
@@ -57,6 +64,8 @@ export default {
       animation: {
         'text-slide': 'text-slide 12s linear infinite',
         'float': 'float 6s ease-in-out infinite',
+        'glow': 'glow 2s ease-in-out infinite alternate',
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         'text-slide': {
@@ -87,6 +96,17 @@ export default {
             transform: 'translateY(-10px)',
           },
         },
+        'glow': {
+          '0%': {
+            boxShadow: '0 0 5px rgba(99, 102, 241, 0.5)',
+          },
+          '100%': {
+            boxShadow: '0 0 20px rgba(99, 102, 241, 0.8), 0 0 30px rgba(99, 102, 241, 0.6)',
+          },
+        },
+      },
+      backdropBlur: {
+        xs: '2px',
       },
     },
   },
