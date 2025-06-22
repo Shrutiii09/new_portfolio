@@ -152,7 +152,7 @@ const FloatingCube = () => {
   
   useFrame((state) => {
     if (!cubeRef.current) return;
-    cubeRef.cubeRef.rotation.x = state.clock.getElapsedTime() * 0.1;
+    cubeRef.current.rotation.x = state.clock.getElapsedTime() * 0.1;
     cubeRef.current.rotation.y = state.clock.getElapsedTime() * 0.15;
     cubeRef.current.rotation.z = state.clock.getElapsedTime() * 0.05;
   });
