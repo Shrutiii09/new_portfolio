@@ -12,6 +12,16 @@ interface ExperienceItem {
 
 const ExperienceData: ExperienceItem[] = [
   {
+    title: "Data Analytics & Visualization Program",
+    company: "Accenture North America (Forage)",
+    period: "May 2025",
+    description: [
+      "Completed a simulation focused on advising a hypothetical social media client as a Data Analyst at Accenture.",
+      "Cleaned, modelled and analyzed 7 datasets to uncover insights into content trends to inform strategic decisions.",
+      "Prepared a PowerPoint deck and video presentation to communicate key insights for the client and internal stakeholders."
+    ]
+  },
+  {
     title: "Full Stack Developer Intern",
     company: "TBI-GEU",
     period: "July 2024 - October 2024",
