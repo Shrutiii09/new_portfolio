@@ -21,7 +21,6 @@ const certificates: Certificate[] = [
     date: "2025",
     category: "Software Engineer",
     skills: ["Programming","SQL","Data Structures","Rest API"],
-    featured: true
   },
   {
     title: "Python Essentials 1",
@@ -30,7 +29,7 @@ const certificates: Certificate[] = [
     date: "2024",
     category: "programming",
     skills: ["Python", "Programming Fundamentals", "Data Structures"],
-    featured: true
+
   },
   {
     title: "Intermediate SQL Certification",
@@ -39,7 +38,7 @@ const certificates: Certificate[] = [
     date: "2024",
     category: "data",
     skills: ["SQL", "Database Management", "Query Optimization"],
-    featured: true
+
   },
   {
     title: "Introduction to Cyber Security",
@@ -56,7 +55,7 @@ const certificates: Certificate[] = [
     date: "2024",
     category: "cloud",
     skills: ["AI/ML", "Google Cloud", "Generative AI"],
-    featured: true
+
   },
   {
     title: "Data Analytics & Visualization Program",
