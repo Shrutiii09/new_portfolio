@@ -15,6 +15,15 @@ interface Certificate {
 
 const certificates: Certificate[] = [
   {
+    title: "Software Engineer",
+    issuer: "Hackerrank",
+    url: "https://www.hackerrank.com/certificates/iframe/2fddb060b1e1",
+    date: "2025",
+    category: "Software Engineer",
+    skills: ["Programming","SQL","Data Structures","Rest API"],
+    featured: true
+  },
+  {
     title: "Python Essentials 1",
     issuer: "Cisco Networking Academy",
     url: "https://www.credly.com/badges/f4c551a6-421f-434b-81b2-5beaccfdd777",
