@@ -19,8 +19,9 @@ const certificates: Certificate[] = [
     issuer: "Hackerrank",
     url: "https://www.hackerrank.com/certificates/iframe/2fddb060b1e1",
     date: "2025",
-    category: "Software Engineer",
+    category: "programming",
     skills: ["Programming","SQL","Data Structures","Rest API"],
+    featured: true
   },
   {
     title: "Python Essentials 1",
@@ -29,7 +30,7 @@ const certificates: Certificate[] = [
     date: "2024",
     category: "programming",
     skills: ["Python", "Programming Fundamentals", "Data Structures"],
-
+    featured: true
   },
   {
     title: "Intermediate SQL Certification",
@@ -38,7 +39,7 @@ const certificates: Certificate[] = [
     date: "2024",
     category: "data",
     skills: ["SQL", "Database Management", "Query Optimization"],
-
+    featured: true
   },
   {
     title: "Introduction to Cyber Security",
@@ -54,8 +55,7 @@ const certificates: Certificate[] = [
     url: "https://www.cloudskillsboost.google/public_profiles/4d3c3f3a-b1e8-42b5-b7a7-fcd0db1a79b3/badges/8309862",
     date: "2024",
     category: "cloud",
-    skills: ["AI/ML", "Google Cloud", "Generative AI"],
-
+    skills: ["AI/ML", "Google Cloud", "Generative AI"]
   },
   {
     title: "Data Analytics & Visualization Program",
@@ -119,8 +119,31 @@ const Certificates: React.FC = () => {
     <section id="certificates" className="py-20 bg-gradient-to-br from-light-200 to-light-100 dark:from-dark-300 dark:to-dark-400 relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 right-10 w-64 h-64 bg-gradient-to-r from-primary-500/30 to-accent-500/30 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-10 left-10 w-48 h-48 bg-gradient-to-r from-secondary-500/30 to-primary-500/30 rounded-full blur-3xl animate-pulse delay-1000" />
+        <motion.div 
+          className="absolute top-10 right-10 w-64 h-64 bg-gradient-to-r from-primary-500/30 to-accent-500/30 rounded-full blur-3xl"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ 
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-10 left-10 w-48 h-48 bg-gradient-to-r from-secondary-500/30 to-primary-500/30 rounded-full blur-3xl"
+          animate={{ 
+            scale: [1.2, 1, 1.2],
+            opacity: [0.6, 0.3, 0.6]
+          }}
+          transition={{ 
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

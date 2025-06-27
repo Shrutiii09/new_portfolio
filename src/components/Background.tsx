@@ -1,6 +1,6 @@
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Stars, Sphere, Torus, Octahedron } from '@react-three/drei';
+import { Float, Stars } from '@react-three/drei';
 import * as THREE from 'three';
 import { useTheme } from '../contexts/ThemeContext';
 

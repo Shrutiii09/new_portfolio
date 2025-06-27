@@ -21,9 +21,14 @@ const ProjectDetail: React.FC = () => {
       security: 'bg-red-500/20 text-red-300 border-red-500/30',
       system: 'bg-green-500/20 text-green-300 border-green-500/30',
       compiler: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
-      scraping: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30'
+      scraping: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30',
+      ml: 'bg-pink-500/20 text-pink-300 border-pink-500/30'
     };
     return colors[category as keyof typeof colors] || 'bg-gray-500/20 text-gray-300 border-gray-500/30';
+  };
+
+  const getCategoryLabel = (category: string) => {
+    return category === 'ml' ? 'Machine Learning' : category.charAt(0).toUpperCase() + category.slice(1);
   };
 
   return (
@@ -59,7 +64,7 @@ const ProjectDetail: React.FC = () => {
             <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
               <div className="flex-1">
                 <span className={`inline-block px-3 py-1 text-sm font-medium rounded-full border mb-4 ${getCategoryColor(project.category)}`}>
-                  {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
+                  {getCategoryLabel(project.category)}
                 </span>
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   {project.title}
@@ -221,7 +226,7 @@ const ProjectDetail: React.FC = () => {
                   <div>
                     <h4 className="text-sm font-medium text-gray-400 mb-1">Category</h4>
                     <span className={`inline-block px-2 py-1 text-xs font-medium rounded-full border ${getCategoryColor(project.category)}`}>
-                      {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
+                      {getCategoryLabel(project.category)}
                     </span>
                   </div>
                   

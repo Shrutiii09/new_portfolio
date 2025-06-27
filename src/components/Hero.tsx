@@ -12,8 +12,8 @@ const Hero: React.FC = () => {
             key={i}
             className="absolute w-2 h-2 bg-primary-400/30 rounded-full"
             initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: typeof window !== 'undefined' ? Math.random() * window.innerWidth : Math.random() * 1200,
+              y: typeof window !== 'undefined' ? Math.random() * window.innerHeight : Math.random() * 800,
             }}
             animate={{
               y: [null, -100, null],

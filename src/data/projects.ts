@@ -11,12 +11,55 @@ export interface ProjectData {
   challenges?: string[];
   learnings?: string[];
   images?: string[];
-  category: 'web' | 'security' | 'system' | 'compiler' | 'scraping';
+  category: 'web' | 'security' | 'system' | 'compiler' | 'scraping' | 'ml';
 }
 
 export const projects: ProjectData[] = [
   {
     id: '1',
+    slug: 'fake-news-detector',
+    title: "Fake News Detector Using ML",
+    shortDescription: "Machine learning-based system to classify news articles as FAKE or REAL using NLP and Logistic Regression",
+    description: [
+      "In the digital era, the rapid dissemination of information has introduced both unprecedented benefits and critical challenges. One of the most concerning challenges is the proliferation of fake news—deliberately misleading or false content presented as news.",
+      "This project presents a machine learning-based Fake News Detection system that classifies news articles as either 'FAKE' or 'REAL' using natural language processing (NLP) techniques and supervised learning algorithms.",
+      "The system was developed using a structured machine learning pipeline with data preprocessing, feature extraction using TF-IDF vectorization, and Logistic Regression for classification. The model achieved approximately 93% accuracy on the test dataset.",
+      "The system was deployed using Streamlit, providing a user-friendly web interface that allows users to input news articles and receive instant predictions with visual feedback."
+    ],
+    technologies: ["Python", "Machine Learning", "NLP", "Scikit-learn", "NLTK", "TF-IDF", "Logistic Regression", "Streamlit", "Pandas", "NumPy"],
+    github: "https://github.com/Shrutiii09/Fake_news_detector.git",
+    category: 'ml',
+    features: [
+      "Automated fake news detection with 93% accuracy",
+      "Natural Language Processing for text preprocessing and cleaning",
+      "TF-IDF vectorization for feature extraction from text data",
+      "Logistic Regression model for binary classification",
+      "Interactive Streamlit web interface for real-time predictions",
+      "Balanced dataset with approximately 6,300 labeled news articles",
+      "Comprehensive text preprocessing including stopword removal and tokenization",
+      "Visual feedback system for prediction results"
+    ],
+    challenges: [
+      "Handling large volumes of unstructured text data effectively",
+      "Implementing comprehensive text preprocessing pipeline",
+      "Achieving high accuracy while maintaining model interpretability",
+      "Balancing precision and recall for both FAKE and REAL classes",
+      "Creating an intuitive user interface for non-technical users",
+      "Optimizing model performance with limited computational resources"
+    ],
+    learnings: [
+      "Advanced Natural Language Processing techniques and implementation",
+      "Machine Learning pipeline development from data preprocessing to deployment",
+      "Text feature extraction using TF-IDF vectorization",
+      "Model evaluation metrics and performance optimization",
+      "Web application development using Streamlit framework",
+      "Understanding of misinformation detection challenges and solutions",
+      "Data science project lifecycle and best practices",
+      "Real-world application of supervised learning algorithms"
+    ]
+  },
+  {
+    id: '2',
     slug: 'lexical-analyzer',
     title: "Lexical Analyzer with GUI Integration",
     shortDescription: "A compiler design project with interactive GUI for tokenizing source code",
@@ -48,7 +91,7 @@ export const projects: ProjectData[] = [
     ]
   },
   {
-    id: '2',
+    id: '3',
     slug: 'minishell',
     title: "MiniShell – Custom Command Line Shell",
     shortDescription: "A simplified command-line interpreter built with Python",
@@ -80,7 +123,7 @@ export const projects: ProjectData[] = [
     ]
   },
   {
-    id: '3',
+    id: '4',
     slug: 'data-leak-detection',
     title: "Data Leak Detection System",
     shortDescription: "Real-time data monitoring system for identifying potential data leaks",
@@ -113,7 +156,7 @@ export const projects: ProjectData[] = [
     ]
   },
   {
-    id: '4',
+    id: '5',
     slug: 'steganography-tool',
     title: "Encryption and Decryption using Digital Cryptography",
     shortDescription: "Django-based steganography tool with LSB encryption for secure image data hiding",
@@ -145,7 +188,7 @@ export const projects: ProjectData[] = [
     ]
   },
   {
-    id: '5',
+    id: '6',
     slug: 'web-scraper',
     title: "Web Scraping Tool",
     shortDescription: "Python scraper with Beautiful Soup for automated data collection",
@@ -177,7 +220,7 @@ export const projects: ProjectData[] = [
     ]
   },
   {
-    id: '6',
+    id: '7',
     slug: 'tic-tac-toe',
     title: "TIC-TAC-TOE",
     shortDescription: "Interactive Tic-Tac-Toe game built with Next.js and TypeScript",
@@ -209,7 +252,7 @@ export const projects: ProjectData[] = [
     ]
   },
   {
-    id: '7',
+    id: '8',
     slug: 'atm-simulation',
     title: "ATM Project",
     shortDescription: "Object-oriented ATM simulation system built with C++",
