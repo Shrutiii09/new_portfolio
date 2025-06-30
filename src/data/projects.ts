@@ -11,12 +11,63 @@ export interface ProjectData {
   challenges?: string[];
   learnings?: string[];
   images?: string[];
-  category: 'web' | 'security' | 'system' | 'compiler' | 'scraping' | 'ml';
+  category: 'web' | 'security' | 'system' | 'compiler' | 'scraping' | 'ml' | 'fintech';
 }
 
 export const projects: ProjectData[] = [
   {
     id: '1',
+    slug: 'personal-investment-advisor-chatbot',
+    title: "Personal Investment Advisor Chatbot",
+    shortDescription: "AI-powered chatbot using NLP and Finance APIs for real-time investment advice and financial calculations",
+    description: [
+      "In today's fast-paced digital era, individuals often seek quick and reliable financial advice without navigating complex websites or consulting advisors. This project presents a Personal Investment Advisor Chatbot, a smart virtual assistant that leverages Natural Language Processing (NLP) and Finance APIs to respond to investment-related queries in real time.",
+      "The chatbot helps users with SIP calculations, FD estimations, mutual fund NAVs, stock and gold prices — all through a friendly chat interface. It combines machine learning for intent classification with real-time financial data integration to provide comprehensive investment guidance.",
+      "Built with a modular architecture using Python and Streamlit, the system features an intelligent NLP engine that processes natural language queries and routes them to appropriate financial calculation modules. The chatbot can handle complex investment scenarios and provide visual representations of financial projections.",
+      "The system integrates multiple data sources including Yahoo Finance for stock prices, AMFI for mutual fund NAVs, and web scraping for gold prices, ensuring users receive accurate and up-to-date financial information for their investment decisions."
+    ],
+    technologies: ["Python", "Streamlit", "NLP", "NLTK", "spaCy", "Scikit-learn", "Naive Bayes", "Yahoo Finance API", "BeautifulSoup", "Matplotlib", "Pandas", "Machine Learning"],
+    github: "https://github.com/Shrutiii09/Investment-Advisor-Chatbot",
+    category: 'fintech',
+    features: [
+      "Natural Language Processing for intent classification using CountVectorizer and Naive Bayes",
+      "Real-time stock price lookup with live data from Yahoo Finance",
+      "SIP (Systematic Investment Plan) calculator with interactive line charts and projections",
+      "Fixed Deposit calculator with compound interest calculations and visual representations",
+      "Mutual fund NAV lookup from AMFI with fuzzy matching for fund names",
+      "Gold price scraping from trusted financial websites with real-time updates",
+      "Interactive Streamlit web interface with persistent conversation history",
+      "Modular architecture with separate handlers for different financial instruments",
+      "Machine learning-based intent detection for accurate query understanding",
+      "Visual charts and graphs for investment projections and historical data",
+      "Comprehensive financial advice based on user risk profile and investment duration",
+      "Support for multiple investment scenarios and personalized recommendations"
+    ],
+    challenges: [
+      "Implementing accurate intent classification for diverse financial queries using NLP",
+      "Integrating multiple financial data sources with different API structures and formats",
+      "Handling real-time data fetching while maintaining application performance",
+      "Creating intuitive conversation flows for complex financial calculations",
+      "Implementing fuzzy matching for mutual fund names to handle user input variations",
+      "Designing responsive charts and visualizations within the Streamlit framework",
+      "Managing data consistency across different financial APIs and scraping sources",
+      "Optimizing machine learning model performance for real-time query processing"
+    ],
+    learnings: [
+      "Advanced Natural Language Processing techniques for financial domain applications",
+      "Integration of multiple financial APIs and data sources in a single application",
+      "Machine learning model development for text classification and intent recognition",
+      "Real-time data processing and visualization using Python libraries",
+      "Conversational AI design principles and user experience optimization",
+      "Financial calculations and investment mathematics implementation",
+      "Web scraping techniques for dynamic financial data extraction",
+      "Streamlit framework for rapid prototyping and deployment of ML applications",
+      "Modular software architecture design for scalable financial applications",
+      "Data preprocessing and feature engineering for NLP models in finance"
+    ]
+  },
+  {
+    id: '2',
     slug: 'fake-news-detector',
     title: "Fake News Detector Using ML",
     shortDescription: "Machine learning-based system to classify news articles as FAKE or REAL using NLP and Logistic Regression",
@@ -59,7 +110,7 @@ export const projects: ProjectData[] = [
     ]
   },
   {
-    id: '2',
+    id: '3',
     slug: 'lexical-analyzer',
     title: "Lexical Analyzer with GUI Integration",
     shortDescription: "A compiler design project with interactive GUI for tokenizing source code",
@@ -91,7 +142,7 @@ export const projects: ProjectData[] = [
     ]
   },
   {
-    id: '3',
+    id: '4',
     slug: 'minishell',
     title: "MiniShell – Custom Command Line Shell",
     shortDescription: "A simplified command-line interpreter built with Python",
@@ -123,7 +174,7 @@ export const projects: ProjectData[] = [
     ]
   },
   {
-    id: '4',
+    id: '5',
     slug: 'data-leak-detection',
     title: "Data Leak Detection System",
     shortDescription: "Real-time data monitoring system for identifying potential data leaks",
@@ -156,7 +207,7 @@ export const projects: ProjectData[] = [
     ]
   },
   {
-    id: '5',
+    id: '6',
     slug: 'steganography-tool',
     title: "Encryption and Decryption using Digital Cryptography",
     shortDescription: "Django-based steganography tool with LSB encryption for secure image data hiding",
@@ -188,7 +239,7 @@ export const projects: ProjectData[] = [
     ]
   },
   {
-    id: '6',
+    id: '7',
     slug: 'web-scraper',
     title: "Web Scraping Tool",
     shortDescription: "Python scraper with Beautiful Soup for automated data collection",
@@ -220,7 +271,7 @@ export const projects: ProjectData[] = [
     ]
   },
   {
-    id: '7',
+    id: '8',
     slug: 'tic-tac-toe',
     title: "TIC-TAC-TOE",
     shortDescription: "Interactive Tic-Tac-Toe game built with Next.js and TypeScript",
@@ -252,7 +303,7 @@ export const projects: ProjectData[] = [
     ]
   },
   {
-    id: '8',
+    id: '9',
     slug: 'atm-simulation',
     title: "ATM Project",
     shortDescription: "Object-oriented ATM simulation system built with C++",

@@ -13,9 +13,18 @@ const Projects: React.FC = () => {
       system: 'bg-green-500/20 text-green-300 border-green-500/30',
       compiler: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
       scraping: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30',
-      ml: 'bg-pink-500/20 text-pink-300 border-pink-500/30'
+      ml: 'bg-pink-500/20 text-pink-300 border-pink-500/30',
+      fintech: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
     };
     return colors[category as keyof typeof colors] || 'bg-gray-500/20 text-gray-300 border-gray-500/30';
+  };
+
+  const getCategoryLabel = (category: string) => {
+    const labels = {
+      ml: 'Machine Learning',
+      fintech: 'FinTech'
+    };
+    return labels[category as keyof typeof labels] || category.charAt(0).toUpperCase() + category.slice(1);
   };
 
   return (
@@ -40,7 +49,7 @@ const Projects: React.FC = () => {
               <div className="p-6 flex-grow">
                 <div className="flex items-start justify-between mb-3">
                   <span className={`px-2 py-1 text-xs font-medium rounded-full border ${getCategoryColor(project.category)}`}>
-                    {project.category === 'ml' ? 'Machine Learning' : project.category.charAt(0).toUpperCase() + project.category.slice(1)}
+                    {getCategoryLabel(project.category)}
                   </span>
                 </div>
                 
