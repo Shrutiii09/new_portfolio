@@ -39,10 +39,10 @@ const achievements: Achievement[] = [
   },
   {
     title: "Internship Excellence",
-    description: "Successfully completed 4 professional internships, gaining hands-on experience in full-stack development, Python programming, and data analytics.",
+    description: "Successfully completed 3 professional internships, gaining hands-on experience in full-stack development, Python programming, and data analytics.",
     icon: <Star className="w-8 h-8" />,
     category: "Professional Experience",
-    highlight: "4 Internships",
+    highlight: "3 Internships",
     stats: "Industry Experience"
   }
 ];
