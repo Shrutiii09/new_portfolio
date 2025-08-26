@@ -27,7 +27,7 @@ export const projects: ProjectData[] = [
       "The system integrates multiple data sources including Yahoo Finance for stock prices, AMFI for mutual fund NAVs, and web scraping for gold prices, ensuring users receive accurate and up-to-date financial information for their investment decisions."
     ],
     technologies: ["Python", "Streamlit", "NLP", "NLTK", "spaCy", "Scikit-learn", "Naive Bayes", "Yahoo Finance API", "BeautifulSoup", "Matplotlib", "Pandas", "Machine Learning"],
-    github: "https://github.com/Shrutiii09/Investment-Advisor-Chatbot",
+    github: "https://github.com/Shrutiii09/Investment_chatbot",
     category: 'fintech',
     features: [
       "Natural Language Processing for intent classification using CountVectorizer and Naive Bayes",
@@ -78,7 +78,7 @@ export const projects: ProjectData[] = [
       "The system was deployed using Streamlit, providing a user-friendly web interface that allows users to input news articles and receive instant predictions with visual feedback."
     ],
     technologies: ["Python", "Machine Learning", "NLP", "Scikit-learn", "NLTK", "TF-IDF", "Logistic Regression", "Streamlit", "Pandas", "NumPy"],
-    github: "https://github.com/Shrutiii09/Fake_news_detector.git",
+    github: "https://github.com/Shrutiii09/Fake_news_detector",
     category: 'ml',
     features: [
       "Automated fake news detection with 93% accuracy",
@@ -119,7 +119,7 @@ export const projects: ProjectData[] = [
       "The project was built using C++ with an interactive Graphical User Interface (GUI) using Dear ImGui and GLFW, ensuring real-time visual feedback during lexical analysis."
     ],
     technologies: ["C++", "Dear ImGui", "GLFW", "File Handling", "OOP"],
-    github: "https://github.com/Shrutiii09/LexicalAnalyzer.git",
+    github: "https://github.com/Shrutiii09/LexicalAnalyzer",
     category: 'compiler',
     features: [
       "Tokenization Engine: Parses input code and classifies tokens like keywords, identifiers, constants, operators, delimiters, and more",
@@ -151,7 +151,7 @@ export const projects: ProjectData[] = [
       "This project enhances understanding of shell scripting, process management, and system-level interaction in a high-level programming language."
     ],
     technologies: ["Python", "subprocess", "os module", "System Programming"],
-    github: "https://github.com/Shrutiii09/minishelll.git",
+    github: "https://github.com/Shrutiii09/minishell",
     category: 'system',
     features: [
       "Command Execution: Runs both built-in and external system commands using the subprocess module",
@@ -184,7 +184,7 @@ export const projects: ProjectData[] = [
       "Integrated real-time monitoring for immediate detection and response to data breaches."
     ],
     technologies: ["Python", "Data Analysis", "Security", "Real-time Monitoring"],
-    github: "https://github.com/Shrutiii09/data-leak-detection",
+    github: "https://github.com/Shrutiii09/Data_Leak_Detection_System_Simulator",
     category: 'security',
     features: [
       "Real-time monitoring of data flows and access patterns",
@@ -216,7 +216,7 @@ export const projects: ProjectData[] = [
       "Designed a responsive UI with JavaScript, Bootstrap, and Tailwind CSS; implemented unit testing for validation."
     ],
     technologies: ["Django", "JavaScript", "Bootstrap", "Tailwind CSS", "Cryptography", "LSB Encryption"],
-    github: "https://github.com/Shrutiii09/steganography-tool",
+    github: "https://github.com/Shrutiii09/Encryption-and-Decryption-Using-Digital-Cryptography-in-Files",
     category: 'security',
     features: [
       "LSB (Least Significant Bit) encryption for hiding data in images",
@@ -248,7 +248,7 @@ export const projects: ProjectData[] = [
       "Developed an adaptable, scalable tool for diverse web scraping tasks."
     ],
     technologies: ["Python", "Beautiful Soup", "Data Collection", "Web Scraping"],
-    github: "https://github.com/Shrutiii09/web-scraper",
+    github: "https://github.com/Shrutiii09/Web_Scrapping",
     category: 'scraping',
     features: [
       "Automated data extraction from multiple website structures",
@@ -280,7 +280,7 @@ export const projects: ProjectData[] = [
     ],
     technologies: ["Next.js", "React", "TypeScript", "Vercel", "CSS Animations"],
     liveDemo: "https://bouncee.vercel.app/",
-    github: "https://github.com/Shrutiii09/tic-tac-toe",
+    github: "https://github.com/Shrutiii09/crossing",
     category: 'web',
     features: [
       "Interactive game board with smooth animations",
