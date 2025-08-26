@@ -177,7 +177,7 @@ const Achievements: React.FC = () => {
             { label: "Team Leadership", value: "SIH Top 30", icon: <Users className="w-6 h-6" /> },
             { label: "Certifications", value: "7+", icon: <Award className="w-6 h-6" /> },
             { label: "Projects", value: "8+", icon: <Target className="w-6 h-6" /> },
-            { label: "Internships", value: "4", icon: <Star className="w-6 h-6" /> },
+            { label: "Internships", value: "3", icon: <Star className="w-6 h-6" /> },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
