@@ -11,6 +11,16 @@ interface ExperienceItem {
 }
 
 const ExperienceData: ExperienceItem[] = [
+   {
+    title: "Software Engineer + Devops Intern",
+    company: "SPS LABS",
+    period: "June 2025 - August 2025",
+    description: [
+      "Designed and optimized software features in alignment with product requirements, enhancing system performance and maintainability.",
+      "Automated deployment workflows using CI/CD pipelines (GitHub Actions,Jenkins, GitLab CI), accelerating release cycles and reducing deployment errors.",
+      "Containerized and orchestrated applications with Docker and Kubernetes,ensuring scalability, reliability, and streamlined operations. ."
+    ]
+  },
   {
     title: "Data Analytics & Visualization Program",
     company: "Accenture North America (Forage)",
@@ -30,24 +40,7 @@ const ExperienceData: ExperienceItem[] = [
       "Ensured confidentiality and conduct compliance, utilizing project management skills."
     ]
   },
-  {
-    title: "Python Developer Intern",
-    company: "Pratinik Infotech",
-    period: "April 2024 - June 2024",
-    description: [
-      "Gained experience in Python and Django, developing web applications and collaborating on projects.",
-      "Enhanced problem-solving skills within a professional environment."
-    ]
-  },
-  {
-    title: "Python Intern",
-    company: "Uptricks Services Pvt. Ltd.",
-    period: "March 2024 - April 2024",
-    description: [
-      "Learned Beautiful Soup for web scraping, enhancing Python skills at basic and intermediate levels.",
-      "Contributed to team projects, developing practical programming knowledge."
-    ]
-  }
+   
 ];
 
 const Experience: React.FC = () => {
